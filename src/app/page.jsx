@@ -6,14 +6,9 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import { Button } from "@/components/ui/button";
 import List from "./List";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { buttonVariants } from "@/components/ui/button";
+
+import { Table, TableBody } from "@/components/ui/table";
 
 export const dynamic = "force-dynamic";
 
@@ -24,28 +19,31 @@ export default async function Home() {
   let session = await getServerSession(authOptions);
 
   return (
-    <div>
-      <LoginBtn name={session?.user.name} />
-      <Link href="/write">글쓰기</Link>
-      <Button className="w-[200px]">asdf</Button>
-      <Table className="overflow-hidden w-[80vw]">
-        <TableBody className="overflow-hidden w-[400px]">
-          {result.length > 0 ? (
-            result.map((v, i) => (
-              <List
-                id={v._id.toString()}
-                title={v.title}
-                content={v.content}
-                key={i}
-              />
-            ))
-          ) : (
-            <span>loading</span>
-          )}
-        </TableBody>
-      </Table>
-
-      <ul></ul>
+    <div className="flex flex-col justify-center items-center">
+      <Link
+        className={`${buttonVariants({ className: "text-white w-20" })}`}
+        href="/write"
+      >
+        글쓰기
+      </Link>
+      <div className="w-[80vw]">
+        <Table>
+          <TableBody>
+            {result.length > 0 ? (
+              result.map((v, i) => (
+                <List
+                  id={v._id.toString()}
+                  title={v.title}
+                  content={v.content}
+                  key={i}
+                />
+              ))
+            ) : (
+              <span>loading</span>
+            )}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { signIn, signOut } from "next-auth/react";
 export default function LoginBtn({ name = null }) {
   return (
     <>
-      <Button onClick={() => signIn()}>
+      <Button className="w-20 cursor-pointer" onClick={() => signIn()}>
         {name ? `안녕 ${name}` : `로그인`}
       </Button>
       {name && (
