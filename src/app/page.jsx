@@ -1,10 +1,5 @@
 import Link from "next/link";
 import connectDB from "../utils/database";
-import { signIn } from "next-auth/react";
-import LoginBtn from "./LoginBtn";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../../pages/api/auth/[...nextauth]";
-import { Button } from "@/components/ui/button";
 import List from "./List";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -16,7 +11,6 @@ export default async function Home() {
   const client = await connectDB;
   const db = client.db("forum");
   let result = await db.collection("post").find().toArray();
-  let session = await getServerSession(authOptions);
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -35,6 +29,9 @@ export default async function Home() {
                   id={v._id.toString()}
                   title={v.title}
                   content={v.content}
+                  userName={v.userName}
+                  likes={v.likes}
+                  createdAt={String(v.createdAt)}
                   key={i}
                 />
               ))

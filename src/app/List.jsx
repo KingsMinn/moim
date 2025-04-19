@@ -3,7 +3,14 @@
 import { TableCell, TableRow } from "@/components/ui/table";
 import { useRouter } from "next/navigation";
 
-export default function List({ id, title, content }) {
+export default function List({
+  id,
+  title,
+  content,
+  userName,
+  likes,
+  createdAt,
+}) {
   const route = useRouter();
   return (
     <TableRow
@@ -24,7 +31,7 @@ export default function List({ id, title, content }) {
               d="M12.001 4.529a6 6 0 0 1 8.242.228a6 6 0 0 1 .236 8.236l-8.48 8.492l-8.478-8.492a6 6 0 0 1 8.48-8.464m6.826 1.641a4 4 0 0 0-5.49-.153l-1.335 1.198l-1.336-1.197a4 4 0 0 0-5.686 5.605L12 18.654l7.02-7.03a4 4 0 0 0-.193-5.454"
             />
           </svg>
-          {[1231232].toLocaleString()}
+          {[likes].toLocaleString()}
         </div>
       </TableCell>
       <TableCell className="font-medium max-w-[400px] text-ellipsis overflow-hidden">
@@ -51,7 +58,7 @@ export default function List({ id, title, content }) {
               d="M12 6c-1.93 0-3.5 1.57-3.5 3.5S10.07 13 12 13s3.5-1.57 3.5-3.5S13.93 6 12 6m0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11"
             />
           </svg>
-          작성자
+          {userName}
         </div>
       </TableCell>
       <TableCell className="text-right">
@@ -72,7 +79,7 @@ export default function List({ id, title, content }) {
               d="M12.5 7H11v6l5.25 3.15l.75-1.23l-4.5-2.67z"
             />
           </svg>
-          날짜
+          {createdAt}
         </div>
       </TableCell>
     </TableRow>
