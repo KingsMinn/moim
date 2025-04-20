@@ -13,7 +13,7 @@ export function AppSidebar() {
   const items = [
     {
       title: "main",
-      url: "https://www.google.com",
+      url: "/",
       icon: `${(
         <svg
           width="24"

@@ -5,7 +5,24 @@ export default function CommentContainer({ commentList, itemId }) {
 
   return (
     <div>
-      {parsedResult.comments.map((v) => (
+      <form action="/api/comment/new" method="POST">
+        <input readOnly name="postId" id="postId" value={itemId} />
+        <textarea name="content" id="content" placeholder="댓글 입력하쇼" />
+        <Button>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="currentColor"
+              d="M2.01 21L23 12L2.01 3L2 10l15 2l-15 2z"
+            />
+          </svg>
+        </Button>
+      </form>
+      {parsedResult?.comments.map((v) => (
         <div>
           <p>{v.userName}</p>
           <p>{v.content}</p>
