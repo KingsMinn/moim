@@ -4,6 +4,7 @@ import LoginBtn from "./LoginBtn";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import { SidebarProvider, SidebarTrigger } from "../components/ui/sidebar";
 import { AppSidebar } from "../components/AppSidebar";
+import Link from "next/link";
 
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions);
@@ -16,6 +17,7 @@ export default async function RootLayout({ children }) {
             <p className="grow font-bold text-lg text-gray-500">DSeeInside</p>
             <input className="grow bg-gray-100 rounded-full" placeholder="여기서 검색ㄱㄱ"/>
             <LoginBtn name={session?.user.name} />
+            <Link href="/register">가입하기</Link>
           </div>
         </nav>
         <div className="mt-[52px]">
