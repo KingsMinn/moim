@@ -4,6 +4,7 @@ import List from "./List";
 import { buttonVariants } from "@/components/ui/button";
 
 import { Table, TableBody } from "@/components/ui/table";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,11 @@ export default async function Home() {
         글쓰기
       </Link>
       <div className="w-[80vw]">
+        <img
+          src="https://i.ibb.co/Y7Qxy7dx/rnasterpiece.jpg"
+          alt="rnasterpiece"
+          border="0"
+        />
         <Table>
           <TableBody>
             {result.length > 0 ? (
