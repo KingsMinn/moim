@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col justify-center items-center">
       <Link
-        className={`${buttonVariants({ className: "text-white w-20" })}`}
+        className={`${buttonVariants({ className: "text-white w-full" })}`}
         href="/write"
       >
         글쓰기

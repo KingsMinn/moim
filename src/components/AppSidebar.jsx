@@ -12,7 +12,7 @@ import {
 export function AppSidebar() {
   const items = [
     {
-      title: "main",
+      title: "메인 갤러리",
       url: "/",
       icon: `${(
         <svg
@@ -31,10 +31,10 @@ export function AppSidebar() {
   ];
 
   return (
-    <Sidebar>
+    <Sidebar className="z-0">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>갤러리</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
